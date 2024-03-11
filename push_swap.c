@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:05:35 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/02 17:33:04 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/11 20:36:14 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	ft_parsing (char *arg)
 	}
 	while (arg[i])
 	{
-		if (arg[i] < 48 || arg[i] > 57 && arg[i] != 32)
+		
+		if ((arg[i] < 48 || arg[i] > 57) && arg[i] != 32)
 		{
 			printf ("TOOBAD\n");
 			return(1);
@@ -39,7 +40,7 @@ int	main (int argc, char **argv)
 {
 
 	int	i;
-
+	(void) argc;
 	i = 1;
 	if (!argv[i])
 	printf ("No entry, tape something after the ./a.out please");
