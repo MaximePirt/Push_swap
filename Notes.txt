@@ -27,3 +27,15 @@
     5                      
 -----------          ------------
     A                      B
+
+    sa
+    sb
+    ss
+    pa
+    pb
+    ra
+    rb
+    rr
+    rra
+    rrb
+    rrr
