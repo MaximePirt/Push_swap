@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/15 17:28:10 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/15 18:55:45 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ void				print_stack(t_data *stack);
 int					ft_check_doublon(t_data *lst, int valeur);
 t_data				*ft_datalstlast(t_data *lst);
 void				ft_datalstadd_back(t_data **lst, t_data *new);
-t_data	*ft_datalstnew(int number);
+t_data				*ft_datalstnew(int number);
+
+// Tests functions
+void				ft_printab(char **tab);
 
 #endif

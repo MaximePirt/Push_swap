@@ -6,11 +6,12 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 15:03:26 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/15 17:03:36 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/15 18:56:03 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_F	= push_swap.c move.c ft_atol.c libft/libft.a ft_lstdupcheck.c \
+		printab.c
 
 SRC_D	= srcs
 OBJ_D = objs

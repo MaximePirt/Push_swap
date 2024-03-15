@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/15 18:16:59 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:16:43 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 void	ft_parsing(char **arg)
 {
 	t_data	*stack_a;
+	char	**tmp;
 	int		i;
-	int		len;
+	long	len;
 	long	j;
+	long	tln;
 
 	stack_a = malloc(sizeof(t_data));
 	if (!stack_a)
@@ -30,40 +32,50 @@ void	ft_parsing(char **arg)
 	while (arg[i])
 	{
 		len = ft_strlen(arg[i]);
-		j = 0;
 		if (len > 10)
-		{
-			printf("Wsh mon reuf ca depasse le INT_MAX la t as pas l'impression?");
 			return ;
-		}
-		while (arg[i][j])
+		tmp = ft_split(arg[i], ' ');
+		ft_printab(tmp);
+		tln = 0;
+		while (tmp[tln])
 		{
-			arg[i] = *ft_split(arg[i], 32);
-			if ((arg[i][j] < 48 || arg[i][j] > 57) && arg[i][j] != 32)
+			j = 1;
+			while (tmp[tln][j])
 			{
-				printf("Un caractere n'etant pas un chiffre a ete inserer %c\n",
-					arg[i][j]);
+				if (tmp[tln][j] < 48 || tmp[tln][j] > 57)
+				{
+					printf("char hors chiffre %c\n", tmp[i][j]);
+					free(stack_a);
+					free(tmp);
+					return ;
+				}
+				j++;
+			}
+			len = ft_atol(tmp[tln]);
+			if (!ft_check_doublon(stack_a, len))
+			{
+				if (len > 2147483647)
+				{
+					printf("troplong");
+					return ;
+				}
+				ft_datalstadd_back(&stack_a, ft_datalstnew(ft_atol(tmp[tln])));
+			}
+			else
+			{
+				printf("doublon");
+				free(stack_a);
 				return ;
 			}
-			// printf("ya une tite erreur la");
-			j++;
+			tln++;
 		}
-		// printf("capasse %s\n", arg[i]);
-		if (!ft_check_doublon(stack_a, ft_atol(arg[i])))
-		{
-			ft_datalstadd_back(&stack_a, ft_datalstnew(ft_atol(arg[i])));
-			// printf("ajouter");
-		}
-		else
-		{
-			printf("doublon");
-			return ;
-		}
+		free(tmp);
 		i++;
 	}
-	printf("\n\n\n Stack a : \n");
+	printf("\n\n\nStack a : \n");
 	print_stack(stack_a);
 	printf("ok\n");
+	free(stack_a);
 	return ;
 }
 
