@@ -6,12 +6,45 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/15 19:16:43 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/16 18:38:06 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
+
+void	ft_datalstclear(t_data **lst)
+{
+	t_data	*tmp;
+	t_data	*next;
+
+	if (!lst || !*lst)
+		return ;
+	tmp = *lst;
+	while (tmp)
+	{
+		next = tmp->next;
+		tmp->number = 0;
+		free(tmp);
+		tmp = next;
+	}
+	*lst = NULL;
+}
+
+void	free_all(char **tab)
+{
+	int	i;
+
+	if (!tab)
+		return ;
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free(tab);
+}
 
 void	ft_parsing(char **arg)
 {
@@ -31,51 +64,50 @@ void	ft_parsing(char **arg)
 		return ;
 	while (arg[i])
 	{
-		len = ft_strlen(arg[i]);
-		if (len > 10)
-			return ;
-		tmp = ft_split(arg[i], ' ');
-		ft_printab(tmp);
 		tln = 0;
+		tmp = ft_split(arg[i], 32);
 		while (tmp[tln])
 		{
-			j = 1;
+			len = ft_strlen(tmp[tln]);
+			if (len > 10 || !len)
+				return ;
+			j = 0;
 			while (tmp[tln][j])
 			{
 				if (tmp[tln][j] < 48 || tmp[tln][j] > 57)
 				{
-					printf("char hors chiffre %c\n", tmp[i][j]);
+					printf("\nChar instead of an int : %c\n", tmp[tln][j]);
+					ft_datalstclear(&stack_a);
 					free(stack_a);
-					free(tmp);
+					free_all(tmp);
 					return ;
 				}
 				j++;
 			}
 			len = ft_atol(tmp[tln]);
-			if (!ft_check_doublon(stack_a, len))
+			if (len > 2147483647)
 			{
-				if (len > 2147483647)
-				{
-					printf("troplong");
-					return ;
-				}
-				ft_datalstadd_back(&stack_a, ft_datalstnew(ft_atol(tmp[tln])));
+				printf("Bigger than INT_MAX, calm down please");
+				return ;
 			}
+			if (!ft_check_doublon(stack_a, len))
+				ft_datalstadd_back(&stack_a, ft_datalstnew(ft_atol(tmp[tln])));
 			else
 			{
-				printf("doublon");
-				free(stack_a);
+				printf("You put twice the same arg");
+				ft_datalstclear(&stack_a);
 				return ;
 			}
 			tln++;
 		}
-		free(tmp);
+		ft_printab(tmp);
+		free_all(tmp);
 		i++;
 	}
 	printf("\n\n\nStack a : \n");
 	print_stack(stack_a);
-	printf("ok\n");
-	free(stack_a);
+	ft_datalstclear(&stack_a);
+	// free(stack_a);
 	return ;
 }
 
