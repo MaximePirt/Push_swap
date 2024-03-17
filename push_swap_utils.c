@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:12:34 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/17 07:03:08 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 08:59:26 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	ft_check_doublon(t_data *lst, int valeur)
 	return (0);
 }
 
-void	ft_free_all(char **tab, t_data *arg1)
+void	ft_free_all(char **tab, t_data **arg1)
 {
 	if (!tab && !arg1)
 		return ;
@@ -91,8 +91,7 @@ void	ft_free_all(char **tab, t_data *arg1)
 	}
 	if (arg1)
 	{
-		ft_datalstclear(&arg1);
-		free(arg1);
+		ft_datalstclear(arg1);
 		arg1 = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/17 06:46:59 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 08:59:43 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,11 @@ void				ft_parsing(char **arg);
 int					ft_count(char *tab, int valeur, int scdval);
 int					ft_checkplusminus(char *str);
 int					ft_check_doublon(t_data *lst, int valeur);
-void				ft_free_all(char **tab, t_data *arg1);
+void				ft_free_all(char **tab, t_data **arg1);
 void				free_all(char **tab);
 
 // parsing_utils
-int					tmp_loop(char **tmp, int tln, t_data *stack_a);
+int					tmp_loop(char **tmp, int tln, t_data **stack_a);
 
 // lib funcs
 long				ft_atol(const char *str);

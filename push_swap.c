@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/17 08:37:35 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 09:09:06 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,10 @@ void	ft_parsing(char **arg)
 	long	tln;
 	int		protec;
 
-	stack_a = NULL;
 	i = 1;
 	if (!arg[i])
 		return ;
-	stack_a = malloc(sizeof(t_data));
+	stack_a = ft_calloc(1, sizeof(t_data));
 	if (!stack_a)
 	{
 		ft_datalstclear(&stack_a);
@@ -41,9 +40,7 @@ void	ft_parsing(char **arg)
 		if (!tmp[tln])
 		{
 			ft_putstr_fd("Error\n", 2);
-			ft_datalstclear(&stack_a);
-			free(stack_a);
-			free_all(tmp);
+			ft_free_all(tmp, &stack_a);
 			return ;
 		}
 		while (tmp[tln])
@@ -53,25 +50,22 @@ void	ft_parsing(char **arg)
 			if ((len > 11 || !len) && (j > 2147483647 || j < -2147483648))
 			{
 				ft_putstr_fd("Error\n", 2);
-				ft_datalstclear(&stack_a);
-				free(stack_a);
-				free_all(tmp);
+				ft_free_all(tmp, &stack_a);
 				return ;
 			}
 			j = 0;
-			protec = tmp_loop(tmp, tln, stack_a);
+			protec = tmp_loop(tmp, tln, &stack_a);
 			if (protec == -1)
 			{
 				ft_putstr_fd("Error\n", 2);
+				free_all(tmp);
 				return ;
 			}
 			len = ft_atol(tmp[tln]);
 			if (len > 2147483647 || len < -2147483648)
 			{
 				ft_putstr_fd("Error\n", 2);
-				ft_datalstclear(&stack_a);
-				free(stack_a);
-				free_all(tmp);
+				ft_free_all(tmp, &stack_a);
 				return ;
 			}
 			if (i == 1 && tln == 0)
@@ -84,9 +78,7 @@ void	ft_parsing(char **arg)
 			else
 			{
 				ft_putstr_fd("Error\n", 2);
-				ft_datalstclear(&stack_a);
-				free(stack_a);
-				free_all(tmp);
+				ft_free_all(tmp, &stack_a);
 				return ;
 			}
 			tln++;
@@ -94,10 +86,8 @@ void	ft_parsing(char **arg)
 		free_all(tmp);
 		i++;
 	}
-	printf("\n\n\nStack a : \n");
 	print_stack(stack_a);
-	ft_datalstclear(&stack_a);
-	free(stack_a);
+	ft_free_all(NULL, &stack_a);
 	return ;
 }
 
