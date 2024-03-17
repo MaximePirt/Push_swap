@@ -6,18 +6,18 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 15:03:26 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/15 18:56:03 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/17 05:50:27 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_F	= push_swap.c move.c ft_atol.c libft/libft.a ft_lstdupcheck.c \
-		printab.c
+SRC_F	= push_swap.c move.c ft_atol.c libft/libft.a ft_print_functions.c \
+		printab.c push_swap_utils.c ft_lst_functions.c parsing_utils.c
 
 SRC_D	= srcs
 OBJ_D = objs
 
 OBJ_F = $(SRC_F:%.c=$(OBJ_D)/%.o)
-CC = clang
+CC = clang -g
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 AR = ar rcs
@@ -45,7 +45,7 @@ $(OBJ_D)/%.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 libft/libft.a: $(CLIB)
-	@$(MAKE) -s -C $(dir $(CLIB)) -f $(notdir $(CLIB))
+	@$(MAKE) -s -j -C $(dir $(CLIB)) -f $(notdir $(CLIB))
 
 clean:
 	@$(MAKE) -s -C $(dir $(CLIB)) -f $(notdir $(CLIB)) clean

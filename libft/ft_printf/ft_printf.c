@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:15:19 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/02/06 21:21:21 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 04:36:21 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	return (write (1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 static int	ft_printf_sorter(char *c, va_list *args)
@@ -52,7 +52,7 @@ static int	ft_printf_searcher(const char *format, va_list *args)
 		}
 		else
 			res += ft_putchar(*format);
-		format ++;
+		format++;
 	}
 	return (res);
 }

@@ -6,13 +6,16 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:16:29 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/15 15:42:04 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 04:32:17 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
 

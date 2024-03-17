@@ -6,21 +6,11 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 20:50:40 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/12 13:01:51 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/17 04:30:37 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(char *tamp)
-{
-	size_t	i;
-
-	i = 0;
-	while (tamp[i])
-		i++;
-	return (i);
-}
 
 int	ft_check(char *res, char c)
 {
@@ -61,7 +51,7 @@ void	*ft_calloc(size_t count, size_t size)
 	return (tmp);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*gnl_ft_strjoin(char *s1, char *s2)
 {
 	char	*dst;
 	size_t	i;
