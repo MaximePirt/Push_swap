@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:12:34 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/17 08:59:26 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:24:35 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ int	ft_checkplusminus(char *str)
 
 	i = ft_count(str, 43, 45);
 	if (i == -1)
-	{
 		return (-1);
-	}
 	i = 0;
 	while (str[i])
 	{
@@ -80,23 +78,49 @@ int	ft_check_doublon(t_data *lst, int valeur)
 	return (0);
 }
 
+// void	ft_free_all(char **tab, t_data **arg1)
+// {
+// 	if (!tab && !arg1)
+// 		return ;
+// 	if (!tab && arg1)
+// 		ft_putstr_fd("Error\n", 2);
+// 	if (tab && !arg1)
+// 	{
+// 		free_tab(tab);
+// 		tab = NULL;
+// 		exit(0);
+// 	}
+// 	if (tab)
+// 	{
+// 		free(*tab);
+// 		*tab = NULL;
+// 	}
+// 	if (arg1)
+// 	{
+// 		ft_datalstclear(arg1);
+// 		arg1 = NULL;
+// 	}
+// 	exit(0);
+// }
+
 void	ft_free_all(char **tab, t_data **arg1)
 {
-	if (!tab && !arg1)
-		return ;
+	if (tab && arg1)
+		ft_putstr_fd("Error\n", 2);
 	if (tab)
 	{
-		free(*tab);
-		*tab = NULL;
+		free_tab(tab);
+		tab = NULL;
 	}
 	if (arg1)
 	{
 		ft_datalstclear(arg1);
 		arg1 = NULL;
 	}
+	exit(EXIT_FAILURE);
 }
 
-void	free_all(char **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 
@@ -110,4 +134,5 @@ void	free_all(char **tab)
 	}
 	free(tab);
 	tab = NULL;
+	return ;
 }

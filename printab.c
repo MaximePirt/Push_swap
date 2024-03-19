@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 18:55:20 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/16 18:46:56 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:50:48 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	ft_printab(char **tab)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	printf("Given tab\n");
