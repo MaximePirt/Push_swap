@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 22:47:52 by maxime_pier       #+#    #+#             */
-/*   Updated: 2024/03/12 12:15:42 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 05:44:52 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	len = word_counter(s, c);
-	dst = (char **)malloc (sizeof (char *) * (len + 1));
+	dst = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!dst)
 		return (NULL);
 	i = 0;

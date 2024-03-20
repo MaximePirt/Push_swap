@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:12:34 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 00:24:35 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:38:33 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,43 @@ int	ft_checkplusminus(char *str)
 	{
 		if (str[i] == 43 || str[i] == 45)
 		{
-			i--;
-			if ((str[i] > 47 && str[i] < 58) && i > -1)
+			if (i > 0 && (str[i - 1] > 47 && str[i - 1] < 58))
 				return (-1);
-			i = i + 2;
-			if (str[i] == 32 || !str[i])
-				return (-1);
+			else
+			{
+				i++;
+				if (str[i] == 32 || !str[i])
+					return (-1);
+			}
 		}
 		i++;
 	}
 	return (1);
 }
+
+// int	ft_checkplusminus(char *str)
+// {
+// 	int	i;
+
+// 	i = ft_count(str, 43, 45);
+// 	if (i == -1)
+// 		return (-1);
+// 	i = 0;
+// 	while (str[i])
+// 	{
+// 		if (str[i] == 43 || str[i] == 45)
+// 		{
+// 			i--;
+// 			if (i < 0 && (str[i] > 47 && str[i] < 58))
+// 				return (-1);
+// 			i = i + 2;
+// 			if (str[i] == 32 || !str[i])
+// 				return (-1);
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 int	ft_check_doublon(t_data *lst, int valeur)
 {
@@ -71,51 +97,31 @@ int	ft_check_doublon(t_data *lst, int valeur)
 		return (0);
 	while (lst)
 	{
-		if (lst->number == valeur)
+		if (lst->value == valeur)
 			return (1);
 		lst = lst->next;
 	}
 	return (0);
 }
 
-// void	ft_free_all(char **tab, t_data **arg1)
-// {
-// 	if (!tab && !arg1)
-// 		return ;
-// 	if (!tab && arg1)
-// 		ft_putstr_fd("Error\n", 2);
-// 	if (tab && !arg1)
-// 	{
-// 		free_tab(tab);
-// 		tab = NULL;
-// 		exit(0);
-// 	}
-// 	if (tab)
-// 	{
-// 		free(*tab);
-// 		*tab = NULL;
-// 	}
-// 	if (arg1)
-// 	{
-// 		ft_datalstclear(arg1);
-// 		arg1 = NULL;
-// 	}
-// 	exit(0);
-// }
-
-void	ft_free_all(char **tab, t_data **arg1)
+void	ft_free_all(char **tab, t_data **a, t_data **b)
 {
-	if (tab && arg1)
+	if (tab && a)
 		ft_putstr_fd("Error\n", 2);
 	if (tab)
 	{
 		free_tab(tab);
 		tab = NULL;
 	}
-	if (arg1)
+	if (a)
 	{
-		ft_datalstclear(arg1);
-		arg1 = NULL;
+		ft_datalstclear(a);
+		a = NULL;
+	}
+	if (b)
+	{
+		ft_datalstclear(b);
+		b = NULL;
 	}
 	exit(EXIT_FAILURE);
 }

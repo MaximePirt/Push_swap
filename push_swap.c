@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 00:42:18 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 14:38:39 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,62 @@
 
 void	ft_parsing(char **arg, int i)
 {
-	t_data	*stack_a;
+	t_data	*a;
+	t_data	*b;
 	char	**tmp;
 	long	tln;
 
 	if (!arg[i])
 		return ;
-	stack_a = ft_calloc(1, sizeof(t_data));
-	if (!stack_a)
-		ft_free_all(0, &stack_a);
+	b = NULL;
+	a = NULL;
 	while (arg[i])
 	{
 		tln = 0;
 		tmp = ft_split(arg[i], 32);
 		if (!tmp[tln])
-			ft_free_all(tmp, &stack_a);
+			ft_free_all(tmp, &a, NULL);
 		while (tmp[tln])
 		{
-			ft_conditions(&stack_a, tmp, tln, i);
+			ft_conditions(&a, tmp, tln, i);
 			tln++;
 		}
 		free_tab(tmp);
 		i++;
 	}
-	print_stack(stack_a);
-	ft_free_all(NULL, &stack_a);
+	printf("\nstack a\n");
+	print_stack(a);
+	printf("\nstack b\n");
+	print_stack(b);
+	ft_move(&a, &b, "sa");
+	ft_move(&a, &b, "pb");
+	ft_move(&a, &b, "pb");
+	ft_move(&a, &b, "sb");
+	ft_move(&a, &b, "sa");
+	ft_move(&a, &b, "rrb");
+	ft_move(&a, &b, "ra");
+	ft_move(&a, &b, "rb");
+	ft_move(&a, &b, "rb");
+	ft_move(&a, &b, "rr");
+	ft_move(&a, &b, "pa");
+	printf("\nstack a\n");
+	print_stack(a);
+	printf("\nstack b\n");
+	print_stack(b);
+	ft_free_all(NULL, &a, &b);
 }
+#include "limits.h"
 
 int	main(int argc, char **argv)
 {
 	int	i;
 
+	// printf("%ld", LONG_MAX);
 	(void)argc;
 	i = 1;
 	if (!argv[i])
 	{
-		ft_putstr_fd("Error la\n", 2);
+		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
 	ft_parsing(argv, i);

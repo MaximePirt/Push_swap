@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 04:24:24 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/19 20:42:37 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/20 08:01:27 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_data	*ft_datalstnew(int number)
 	new = malloc(sizeof(t_data));
 	if (new == NULL)
 		return (NULL);
-	new->number = number;
+	new->value = number;
 	new->next = NULL;
 	return (new);
 }
@@ -72,7 +72,7 @@ void	ft_datalstclear(t_data **lst)
 	while (tmp)
 	{
 		next = tmp->next;
-		tmp->number = 0;
+		tmp->value = 0;
 		free(tmp);
 		tmp = next;
 	}
