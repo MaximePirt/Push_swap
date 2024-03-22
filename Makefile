@@ -6,15 +6,15 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 15:03:26 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/20 02:49:06 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/22 18:47:23 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_F	= push_swap.c move.c move_lst.c ft_atol.c libft/libft.a \
+SRC_F	= push_swap.c move.c move_lst.c ft_atol.c  \
 		ft_print_functions.c  printab.c push_swap_utils.c \
 		ft_lst_functions.c parsing_utils.c
 
-SRC_D	= srcs
+SRC_D	= srcs/
 OBJ_D = objs
 
 OBJ_F = $(SRC_F:%.c=$(OBJ_D)/%.o)
@@ -23,7 +23,9 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 AR = ar rcs
 NAME = push_swap
-CLIB = libft/Makefile
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
+INCLUDES = -I includes/ -I $(LIBFT_DIR)/includes/
 
 DEFCOLOR	= \033[0;39m
 CYAN		= \033[1;96m
@@ -36,8 +38,11 @@ RED			= \033[0;91m
 
 all: $(NAME)
 
-$(NAME): $(OBJ_F) libft/libft.a
-	@$(CC) $(CFLAGS) -o $@ $^
+$(LIBFT):
+	@$(MAKE) -s -C $(LIBFT_DIR)
+
+$(NAME): $(OBJ_F) $(LIBFT)
+	@$(CC) $(OBJ_F) $(LIBFT) -o $(NAME) $(CFLAGS) $(INCLUDES)
 	@echo "$(CYAN)Push_swap has been compiled successfully$(DEFCOLOR)"
 
 $(OBJ_D)/%.o: %.c
@@ -45,16 +50,14 @@ $(OBJ_D)/%.o: %.c
 	@echo "$(YELLOW)Compiling $<$(DEFCOLOR)"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-libft/libft.a: $(CLIB)
-	@$(MAKE) -s -j -C $(dir $(CLIB)) -f $(notdir $(CLIB))
 
 clean:
-	@$(MAKE) -s -C $(dir $(CLIB)) -f $(notdir $(CLIB)) clean
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
 	@$(RM) objs 
 	@echo "$(PURPLE)Push_Swap object files cleaned !!$(DEFCOLOR)"
 
 fclean: clean
-	@$(MAKE) -s -C $(dir $(CLIB)) -f $(notdir $(CLIB)) fclean
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
 	@$(RM) $(NAME)
 	@echo "$(RED)Push_swap executable has been destroy$(DEFCOLOR)"
 

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:12:34 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 14:38:33 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:16:17 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,13 @@ int	ft_count(char *tab, int valeur, int scdval)
 		scdval = valeur;
 	if (!tab || (!valeur && !scdval))
 		return (-1);
+	count = 0;
 	while (tab[i])
 	{
-		count = 0;
 		if (tab[i] == valeur || tab[i] == scdval)
 		{
 			count++;
-			i++;
-			while (tab[i] == 32)
-				i++;
-			if (tab[i] == valeur || tab[i] == scdval)
+			if (count >= 2)
 				return (-1);
 		}
 		i++;

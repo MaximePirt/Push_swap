@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 05:07:32 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 14:27:20 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:08:53 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,23 @@ char	*noptozero(char *tmp)
 	size_t	len;
 
 	len = ft_strlen(tmp);
-	a = 0;
 	i = 0;
-	while (tmp[a] == '0')
-		a++;
+	a = 0;
 	while (tmp[i] == '0')
+		i++;
+	if (!tmp[i])
 	{
-		tmp[i] = tmp[len - a];
+		i = 0;
+		tmp[i] = '0';
+		tmp[i + 1] = '\0';
+		return (tmp);
+	}
+	while (tmp[i])
+	{
+		tmp[a] = tmp[i];
+		a++;
 		i++;
 	}
+	tmp[a] = '\0';
 	return (tmp);
 }
