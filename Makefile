@@ -6,13 +6,14 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 15:03:26 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/22 18:47:23 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/22 19:28:50 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_F	= push_swap.c move.c move_lst.c ft_atol.c  \
 		ft_print_functions.c  printab.c push_swap_utils.c \
-		ft_lst_functions.c parsing_utils.c
+		ft_lst_functions.c parsing_utils.c \
+		butterfly.c
 
 SRC_D	= srcs/
 OBJ_D = objs

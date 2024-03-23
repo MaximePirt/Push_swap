@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 11:14:28 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/23 06:19:21 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void				ft_parsing(char **arg, int i);
 
 // move functions
 void				ft_move(t_data **a, t_data **b, char *movetodo);
-void				ft_sasb(t_data **stack);
+void				ft_sasb(t_data **stack, int which);
 void				ft_ss(t_data **a, t_data **b);
-void				ft_papb(t_data **give, t_data **take);
-void				ft_rarb(t_data **stack);
+void				ft_papb(t_data **give, t_data **take, int which);
+void				ft_rarb(t_data **stack, int which);
 void				ft_rr(t_data **a, t_data **b);
-void				ft_rrarrb(t_data **stack);
+void				ft_rrarrb(t_data **stack, int which);
 void				ft_rrr(t_data **a, t_data **b);
 
 ////
@@ -44,6 +44,14 @@ void				ft_rrr(t_data **a, t_data **b);
 ////
 void				swap_stack(t_data *lst, int which);
 void				ft_datalstdelone(t_data *lst, int which);
+
+// algorythm utils
+void				get_padding(t_data **a);
+size_t				dataddition(t_data *a);
+void				sorting_in_execution(t_data **stack_a, t_data **stack_b,
+						int padding);
+void				reput_in_a_at_end(t_data **stack_a, t_data **stack_b,
+						int padding);
 
 // push_swap_utils
 int					ft_count(char *tab, int valeur, int scdval);

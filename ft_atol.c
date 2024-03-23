@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 19:16:42 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 00:49:36 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/22 20:22:08 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,12 @@ long	ft_atol(const char *str)
 	z *= j;
 	return (z);
 }
+
+// #include <stdlib.h>
+
+// int	main(int argc, char **argv)
+// {
+
+// 	printf("%ld\n", atol(argv[1]));
+// 	printf("%ld\n", ft_atol(argv[1]));
+// }

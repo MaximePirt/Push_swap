@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:07:28 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 14:15:35 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/23 06:33:30 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_push(t_data **stack, int value)
 	ft_datalstadd_front(stack, ft_datalstnew(value));
 }
 
-void	ft_papb(t_data **give, t_data **take)
+void	ft_papb(t_data **give, t_data **take, int which)
 {
 	int		value;
 	size_t	len;
@@ -66,9 +66,13 @@ void	ft_papb(t_data **give, t_data **take)
 		value = ft_pop(give);
 		ft_push(take, value);
 	}
+	if (which == 1)
+		ft_putstr_fd("pa\n", 1);
+	else
+		ft_putstr_fd("pb\n", 1);
 }
 
-void	ft_rarb(t_data **stack)
+void	ft_rarb(t_data **stack, int which)
 {
 	size_t	len;
 	size_t	counter;
@@ -82,6 +86,10 @@ void	ft_rarb(t_data **stack)
 		ft_push(stack, value);
 		counter++;
 	}
+	if (which == 1)
+		ft_putstr_fd("ra\n", 1);
+	else
+		ft_putstr_fd("rb\n", 1);
 }
 
 void	ft_rr(t_data **a, t_data **b)
@@ -106,6 +114,7 @@ void	ft_rr(t_data **a, t_data **b)
 		ft_push(b, value);
 		counter++;
 	}
+	ft_putstr_fd("rr\n", 1);
 }
 
 void	ft_rrr(t_data **a, t_data **b)
@@ -130,9 +139,10 @@ void	ft_rrr(t_data **a, t_data **b)
 		ft_datalstadd_back(b, ft_datalstnew(value));
 		counter++;
 	}
+	ft_putstr_fd("rrr\n", 1);
 }
 
-void	ft_rrarrb(t_data **stack)
+void	ft_rrarrb(t_data **stack, int which)
 {
 	size_t	len;
 	size_t	counter;
@@ -146,6 +156,10 @@ void	ft_rrarrb(t_data **stack)
 		ft_datalstadd_back(stack, ft_datalstnew(value));
 		counter++;
 	}
+	if (which == 1)
+		ft_putstr_fd("rra\n", 1);
+	else
+		ft_putstr_fd("rrb\n", 1);
 }
 
 int	ft_datalstsize(t_data *lst)
@@ -178,7 +192,7 @@ int	ft_datalstsize(t_data *lst)
 // 	ft_datalstadd_back(stack, ft_datalstnew(value));
 // }
 
-void	ft_sasb(t_data **stack)
+void	ft_sasb(t_data **stack, int which)
 {
 	int	value;
 	int	value2;
@@ -192,6 +206,10 @@ void	ft_sasb(t_data **stack)
 		ft_push(stack, value);
 		ft_push(stack, value2);
 	}
+	if (which == 1)
+		ft_putstr_fd("sa\n", 1);
+	else
+		ft_putstr_fd("sb\n", 1);
 }
 
 void	ft_ss(t_data **a, t_data **b)
@@ -216,4 +234,5 @@ void	ft_ss(t_data **a, t_data **b)
 		ft_push(b, value);
 		ft_push(b, value2);
 	}
+	ft_putstr_fd("ss\n", 1);
 }
