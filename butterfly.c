@@ -6,15 +6,148 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:18:27 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/23 06:52:56 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 20:02:31 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	butterfly_to_be(t_data **a, t_data **b)
+void	butterfly_to_be(t_data **a, t_data **b)
+{
+	// int	jz;
+	// jz = 50;
+	(void)**b;
+	find_padding(*a);
+	// sorting_in_execution(a, b, jz);
+}
+
+void	find_padding(t_data *a)
+{
+	t_data	*tmp_a;
+
+	tmp_a = NULL;
+	ft_datalstcpy(a, &tmp_a);
+	ft_printf("\nCopie de tmp_a :\n");
+	print_stack(tmp_a);
+	sort_the_copy(&tmp_a);
+	////
+	indexation(&a, tmp_a);
+	////
+	ft_printf("\nFin du travail sur tmp_a :\n");
+	print_stack(tmp_a);
+	// ft_printf("\nrappel de a :\n");
+	// print_stack(a);
+	ft_printf("\n Voila mon indexation : \n");
+	print_index(a);
+	ft_printf("\nremise a 0 de a :\n");
+}
+
+void	indexation(t_data **id_stack, t_data *support)
+{
+	t_data	*start;
+	t_data	*check;
+	t_data	*check_start;
+	size_t	i;
+
+	i = 1;
+	check = *id_stack;
+	check_start = check;
+	start = support;
+	while (support)
+	{
+		check = check_start;
+		while (check)
+		{
+			if (support->value == check->value)
+			{
+				check->index = i;
+				i++;
+			}
+			check = check->next;
+		}
+		support = support->next;
+	}
+}
+
+void	sort_the_copy(t_data **stack)
+{
+	t_data	*start;
+	t_data	*check;
+	int		swap;
+
+	check = *stack;
+	start = check;
+	while (start)
+	{
+		check = start;
+		while (check)
+		{
+			if (start->value > check->value)
+			{
+				swap = start->value;
+				start->value = check->value;
+				check->value = swap;
+			}
+			check = check->next;
+		}
+		start = start->next;
+	}
+}
+
+void	ft_datalstcpy(t_data *give, t_data **copy)
+{
+	*copy = NULL;
+	while (give != NULL)
+	{
+		ft_datalstadd_back(copy, ft_datalstnew(give->value));
+		give = give->next;
+	}
+}
+
+// void	find_padding(t_data *a)
 // {
+// 	t_data	*tmp_a;
+// 	t_data	*a_copy;
+// 	t_data	*start;
+// 	int		swap;
+
+// 	tmp_a = NULL;
+// 	a_copy = a;
+// 	while (a_copy != NULL)
+// 	{
+// 		ft_datalstadd_back(&tmp_a, ft_datalstnew(a_copy->value));
+// 		a_copy = a_copy->next;
+// 	}
+// 	a_copy = tmp_a;
+// 	start = a_copy;
+// 	ft_printf("\nCopie de tmp_a :\n");
+// 	print_stack(tmp_a);
+// 	while (start)
+// 	{
+// 		a_copy = start;
+// 		while (a_copy)
+// 		{
+// 			if (start->value > a_copy->value)
+// 			{
+// 				swap = start->value;
+// 				start->value = a_copy->value;
+// 				a_copy->value = swap;
+// 			}
+// 			a_copy = a_copy->next;
+// 		}
+// 		start = start->next;
+// 	}
+// 	ft_printf("\nFin de la copie de a :\n");
+// 	print_stack(tmp_a);
 // }
+// for (i = 0; i < N - 1; i++)
+// 	for (j = i + 1; j < N; j++)
+// 		if (T[i] > T[j])
+// 		{
+// 			c = T[i];
+// 			T[i] = T[j];
+// 			T[j] = c;
+// 		}
 
 void	padding_fly(t_data **a)
 {

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/23 06:19:21 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:41:44 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_data
 {
 	int				value;
+	size_t			index;
 	struct s_data	*next;
 	struct s_data	*prev;
 }					t_data;
@@ -46,12 +47,18 @@ void				swap_stack(t_data *lst, int which);
 void				ft_datalstdelone(t_data *lst, int which);
 
 // algorythm utils
+void				butterfly_to_be(t_data **a, t_data **b);
+void				find_padding(t_data *a);
 void				get_padding(t_data **a);
 size_t				dataddition(t_data *a);
 void				sorting_in_execution(t_data **stack_a, t_data **stack_b,
 						int padding);
 void				reput_in_a_at_end(t_data **stack_a, t_data **stack_b,
 						int padding);
+
+// Functions on the copy
+void				sort_the_copy(t_data **stack);
+void				indexation(t_data **id_stack, t_data *support);
 
 // push_swap_utils
 int					ft_count(char *tab, int valeur, int scdval);
@@ -76,10 +83,13 @@ void				ft_datalstadd_front(t_data **lst, t_data *new);
 t_data				*ft_datalstnew(int number);
 void				ft_datalstclear(t_data **lst);
 int					ft_datalstsize(t_data *lst);
+void				ft_datalstcpy(t_data *give, t_data **copy);
 // print_functions
 void				ft_printab(char **tab);
 void				print_stack(t_data *a);
+void				print_index(t_data *stack);
 
+// pop && push
 int					ft_pop(t_data **stack);
 void				ft_push(t_data **stack, int value);
 #endif
