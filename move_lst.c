@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:07:28 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/23 06:33:30 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 20:30:05 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ void	ft_rarb(t_data **stack, int which)
 
 	counter = 0;
 	len = ft_datalstsize(*stack);
+	// if (len < 2)
+	// 	return ;
 	while (counter < len - 1)
 	{
 		value = ft_pop_end(stack);

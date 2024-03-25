@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/24 22:46:33 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 20:25:40 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_parsing(char **arg, int i)
 		tln = 0;
 		tmp = ft_split(arg[i], 32);
 		if (!tmp[tln])
-			ft_free_all(tmp, &a, NULL);
+			ft_free_all(tmp, &a, NULL, 1);
 		while (tmp[tln])
 		{
 			ft_conditions(&a, tmp, tln, i);
@@ -43,9 +43,9 @@ void	ft_parsing(char **arg, int i)
 	// ft_printf("\nAfter sorting\n");
 	printf("\nstack a\n");
 	print_stack(a);
-	// printf("\nstack b\n");
-	// print_stack(b);
-	ft_free_all(NULL, &a, &b);
+	printf("\nstack b\n");
+	print_stack(b);
+	ft_free_all(NULL, &a, &b, 1);
 }
 #include "limits.h"
 

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/25 19:41:44 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 20:07:56 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void				indexation(t_data **id_stack, t_data *support);
 int					ft_count(char *tab, int valeur, int scdval);
 int					ft_checkplusminus(char *str);
 int					ft_check_doublon(t_data *lst, int valeur);
-void				ft_free_all(char **tab, t_data **a, t_data **b);
+void				ft_free_all(char **tab, t_data **a, t_data **b, int i);
 void				free_tab(char **tab);
 
 // parsing_utils

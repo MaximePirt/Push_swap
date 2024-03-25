@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 05:07:32 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/22 19:08:53 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/25 20:08:34 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ int	tmp_loop(char **tmp, int tln, t_data *lst)
 	j = 0;
 	len = ft_checkplusminus(tmp[tln]);
 	if (len == -1)
-		ft_free_all(tmp, &lst, NULL);
+		ft_free_all(tmp, &lst, NULL, 1);
 	while (tmp[tln][j])
 	{
 		if (tmp[tln][j] == 35)
 			continue ;
 		if ((tmp[tln][j] < 48 || tmp[tln][j] > 57) && (tmp[tln][j] != 43
 				&& tmp[tln][j] != 45))
-			ft_free_all(tmp, &lst, NULL);
+			ft_free_all(tmp, &lst, NULL, 1);
 		j++;
 	}
 	return (1);
@@ -42,16 +42,16 @@ void	ft_conditions(t_data **lst, char **tmp, int tln, int i)
 	len = ft_strlen(tmp[tln]);
 	j = ft_atol(tmp[tln]);
 	if ((len > 11 || !len) && (j > 2147483647 || j < -2147483648))
-		ft_free_all(tmp, lst, NULL);
+		ft_free_all(tmp, lst, NULL, 1);
 	if ((len > 11 || !len) || (j > 2147483647 || j < -2147483648))
-		ft_free_all(tmp, lst, NULL);
+		ft_free_all(tmp, lst, NULL, 1);
 	len = tmp_loop(tmp, tln, *lst);
 	if (i == 1 && tln == 0)
 		*lst = ft_datalstnew(j);
 	else if (!ft_check_doublon(*lst, (int)j))
 		ft_datalstadd_back(lst, ft_datalstnew(j));
 	else
-		ft_free_all(tmp, lst, NULL);
+		ft_free_all(tmp, lst, NULL, 1);
 	return ;
 }
 
