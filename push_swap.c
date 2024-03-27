@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/25 20:25:40 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/27 20:44:30 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,7 @@ void	ft_parsing(char **arg, int i)
 		free_tab(tmp);
 		i++;
 	}
-	// ft_printf("\nstack a\n");
-	// print_stack(a);
 	butterfly_to_be(&a, &b);
-	// ft_printf("\nAfter sorting\n");
-	printf("\nstack a\n");
-	print_stack(a);
-	printf("\nstack b\n");
-	print_stack(b);
 	ft_free_all(NULL, &a, &b, 1);
 }
 #include "limits.h"

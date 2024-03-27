@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 05:07:32 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/25 20:08:34 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/27 21:02:31 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,18 @@ void	ft_conditions(t_data **lst, char **tmp, int tln, int i)
 	tmp[tln] = noptozero(tmp[tln]);
 	len = ft_strlen(tmp[tln]);
 	j = ft_atol(tmp[tln]);
+	// printf("\n voila tmp[tln] [%s]\n", tmp[tln]);
+	// printf("\n voila j [%ld]\n", j);
+	// printf("\n voila len [%d]\n", len);
 	if ((len > 11 || !len) && (j > 2147483647 || j < -2147483648))
 		ft_free_all(tmp, lst, NULL, 1);
 	if ((len > 11 || !len) || (j > 2147483647 || j < -2147483648))
 		ft_free_all(tmp, lst, NULL, 1);
 	len = tmp_loop(tmp, tln, *lst);
 	if (i == 1 && tln == 0)
-		*lst = ft_datalstnew(j);
+		*lst = ft_datalstnew(j, 0);
 	else if (!ft_check_doublon(*lst, (int)j))
-		ft_datalstadd_back(lst, ft_datalstnew(j));
+		ft_datalstadd_back(lst, ft_datalstnew(j, 0));
 	else
 		ft_free_all(tmp, lst, NULL, 1);
 	return ;
@@ -64,15 +67,25 @@ char	*noptozero(char *tmp)
 	len = ft_strlen(tmp);
 	i = 0;
 	a = 0;
+	if ((tmp[0] == 43 || tmp[0] == 45) && tmp[1] && tmp[1] != ' ')
+	{
+		a++;
+		i++;
+	}
 	while (tmp[i] == '0')
 		i++;
 	if (!tmp[i])
 	{
-		i = 0;
-		tmp[i] = '0';
-		tmp[i + 1] = '\0';
+		tmp[0] = '0';
+		tmp[1] = '\0';
 		return (tmp);
 	}
+	tmp = copy(tmp, a, i);
+	return (tmp);
+}
+
+char	*copy(char *tmp, size_t a, size_t i)
+{
 	while (tmp[i])
 	{
 		tmp[a] = tmp[i];

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 04:24:24 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/20 08:01:27 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:10:35 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_datalstadd_front(t_data **lst, t_data *new)
 	*lst = new;
 }
 
-t_data	*ft_datalstnew(int number)
+t_data	*ft_datalstnew(int number, size_t index)
 {
 	t_data	*new;
 
@@ -56,6 +56,8 @@ t_data	*ft_datalstnew(int number)
 	new = malloc(sizeof(t_data));
 	if (new == NULL)
 		return (NULL);
+	if (index > 0)
+		new->index = index;
 	new->value = number;
 	new->next = NULL;
 	return (new);
