@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 01:07:28 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/26 16:17:26 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/28 20:28:54 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,33 +125,14 @@ void	ft_rarb(t_data **stack, int which)
 		ft_putstr_fd("ra\n", 1);
 	else if (which == 2)
 		ft_putstr_fd("rb\n", 1);
+	if (which == 3)
+		return ;
 }
 
 void	ft_rr(t_data **a, t_data **b)
 {
-	size_t	len;
-	size_t	counter;
-	size_t	index;
-	int		value;
-
-	counter = 0;
-	len = ft_datalstsize(*a);
-	while (counter < len - 1)
-	{
-		index = (*a)->index;
-		value = ft_pop_end(a);
-		ft_push(a, value, index);
-		counter++;
-	}
-	counter = 0;
-	len = ft_datalstsize(*b);
-	while (counter < len - 1)
-	{
-		index = (*b)->index;
-		value = ft_pop_end(b);
-		ft_push(b, value, index);
-		counter++;
-	}
+	ft_rarb(a, 3);
+	ft_rarb(b, 3);
 	ft_putstr_fd("rr\n", 1);
 }
 
