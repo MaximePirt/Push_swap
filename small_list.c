@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:00:19 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/27 20:39:56 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 10:29:58 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,46 @@ void	five_four_num_sort(t_data **stack_a, t_data **stack_b, int which)
 		ft_papb(stack_b, stack_a, 1);
 }
 
+// void	move_biggy_to(t_data **take, t_data **stack, int which)
+// {
+// 	size_t	biggy_position;
+// 	size_t	biggy;
+// 	size_t	len;
+// 	int		i;
+
+// 	i = 0;
+// 	biggy = find_biggy(*stack, 1);
+// 	biggy_position = find_biggy(*stack, 2);
+// 	len = ft_datalstsize(*stack);
+// 	if (biggy_position <= (len / 2))
+// 	{
+// 		while ((*stack)->index != biggy)
+// 		{
+// 			if ((*stack)->index == biggy - 1)
+// 			{
+// 				ft_papb(stack, take, 1);
+// 				i = 1;
+// 			}
+// 			ft_rarb(stack, which);
+// 		}
+// 	}
+// 	else
+// 		while ((*stack)->index != biggy)
+// 		{
+// 			if ((*stack)->index == biggy - 1)
+// 			{
+// 				ft_papb(stack, take, 1);
+// 				i = 1;
+// 			}
+// 			ft_rrarrb(stack, which);
+// 		}
+// 	if (which == 1)
+// 		ft_papb(stack, take, 2);
+// 	else
+// 		ft_papb(stack, take, 1);
+// 	if (i == 1)
+// 		ft_sasb(take, 1);
+// }
 void	move_biggy_to(t_data **take, t_data **stack, int which)
 {
 	size_t	biggy_position;
@@ -41,11 +81,42 @@ void	move_biggy_to(t_data **take, t_data **stack, int which)
 	if (biggy_position <= (len / 2))
 	{
 		while ((*stack)->index != biggy)
+		{
+			if ((*stack)->next->index == biggy && (*stack)->index == biggy - 1)
+			{
+				ft_papb(stack, take, 1);
+				ft_papb(stack, take, 1);
+				if ((*stack)->next->index == biggy && (*stack)->index == biggy
+					- 1)
+					ft_ss(take, stack);
+				else
+					ft_sasb(take, 1);
+				return ;
+			}
+			else if ((*stack)->index == biggy - 1)
+			{
+				ft_papb(stack, take, 1);
+				while ((*stack)->index != biggy)
+					ft_rarb(stack, which);
+				ft_papb(stack, take, 1);
+				ft_sasb(take, 1);
+				return ;
+			}
 			ft_rarb(stack, which);
+		}
 	}
 	else
 		while ((*stack)->index != biggy)
+		{
+			if ((*stack)->next->index == biggy && (*stack)->index == biggy - 1)
+			{
+				ft_papb(stack, take, 1);
+				ft_papb(stack, take, 1);
+				ft_sasb(take, 1);
+				return ;
+			}
 			ft_rrarrb(stack, which);
+		}
 	if (which == 1)
 		ft_papb(stack, take, 2);
 	else
@@ -59,7 +130,7 @@ void	move_minnie_to(t_data **take, t_data **stack, int which)
 	size_t	len;
 
 	minnie = find_minnie(*stack, 1);
-	minnie_position = find_biggy(*stack, 2);
+	minnie_position = find_minnie(*stack, 2);
 	len = ft_datalstsize(*stack);
 	if (minnie_position <= (len / 2))
 	{
@@ -163,7 +234,3 @@ int	check_index(t_data *stack)
 	}
 	return (0);
 }
-
-// void	five_num_sort(t_data **stack_a, t_data **stack_b)
-// {
-// }

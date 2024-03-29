@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:18:27 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/28 22:15:42 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 10:20:29 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	butterfly_to_be(t_data **a, t_data **b)
 		return ;
 	if (how_many > 5 && how_many < 100)
 		jz = 25;
-	if (how_many > 100 && how_many < 200)
-		jz = 26;
+	if (how_many >= 100 && how_many < 200)
+		jz = 35;
 	if (how_many > 200)
-		jz = 58;
+		jz = 57;
 	else
 		jz = find_padding(*a);
 	sorting_in_execution(a, b, jz);
@@ -68,8 +68,22 @@ void	butterfly_to_be(t_data **a, t_data **b)
 
 void	reput_in_a_at_end(t_data **stack_a, t_data **stack_b)
 {
+	size_t	len;
+	size_t	countdown;
+
+	len = 0;
+	countdown = ft_datalstsize(*stack_b);
 	while (*stack_b)
+	{
+		len++;
 		move_biggy_to(stack_a, stack_b, 2);
+		countdown--;
+		if ((len > 1 && (*stack_a)->index > (*stack_a)->next->index)
+			&& (countdown > 1 && (*stack_b)->index < (*stack_b)->next->index))
+			ft_ss(stack_a, stack_b);
+		else if (len > 1 && (*stack_a)->index > (*stack_a)->next->index)
+			ft_sasb(stack_a, 1);
+	}
 }
 
 void	sorting_in_execution(t_data **stack_a, t_data **stack_b, size_t padding)

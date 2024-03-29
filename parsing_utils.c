@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 05:07:32 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/27 21:02:31 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 10:42:45 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,6 @@ void	ft_conditions(t_data **lst, char **tmp, int tln, int i)
 	tmp[tln] = noptozero(tmp[tln]);
 	len = ft_strlen(tmp[tln]);
 	j = ft_atol(tmp[tln]);
-	// printf("\n voila tmp[tln] [%s]\n", tmp[tln]);
-	// printf("\n voila j [%ld]\n", j);
-	// printf("\n voila len [%d]\n", len);
 	if ((len > 11 || !len) && (j > 2147483647 || j < -2147483648))
 		ft_free_all(tmp, lst, NULL, 1);
 	if ((len > 11 || !len) || (j > 2147483647 || j < -2147483648))
