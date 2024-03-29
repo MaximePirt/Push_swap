@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:12:34 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/25 20:08:01 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:54:05 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,30 +63,6 @@ int	ft_checkplusminus(char *str)
 	}
 	return (1);
 }
-
-// int	ft_checkplusminus(char *str)
-// {
-// 	int	i;
-
-// 	i = ft_count(str, 43, 45);
-// 	if (i == -1)
-// 		return (-1);
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i] == 43 || str[i] == 45)
-// 		{
-// 			i--;
-// 			if (i < 0 && (str[i] > 47 && str[i] < 58))
-// 				return (-1);
-// 			i = i + 2;
-// 			if (str[i] == 32 || !str[i])
-// 				return (-1);
-// 		}
-// 		i++;
-// 	}
-// 	return (1);
-// }
 
 int	ft_check_doublon(t_data *lst, int valeur)
 {

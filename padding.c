@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 16:59:16 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/27 17:51:56 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 21:06:21 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ void	padding_fly(t_data **a)
 
 void	sort_the_copy(t_data **stack)
 {
-	t_data *start;
-	t_data *check;
-	int swap;
+	t_data	*start;
+	t_data	*check;
+	int		swap;
 
 	check = *stack;
 	start = check;

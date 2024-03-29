@@ -6,7 +6,7 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/30 12:26:58 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/14 19:23:50 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/29 21:38:43 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC_FILES = libft/ft_atoi.c libft/ft_bzero.c libft/ft_calloc.c libft/ft_isalnum.
 SRCDIR = libft GNL ft_printf
 OBJ_D = objs
 OBJ_FILES = $(SRC_FILES:%.c=$(OBJ_D)/%.o)
-CC = clang
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME = libft.a
 AR = ar rcs
@@ -54,7 +54,6 @@ $(OBJ_D)/%.o: %.c
 
 clean:
 	@$(RM) $(OBJ_D)
-	@echo "$(PURPLE)Object files have been removed.$(DEFCOLOR)"
 
 fclean: clean
 	@$(RM) $(NAME)

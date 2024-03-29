@@ -6,20 +6,21 @@
 #    By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 15:03:26 by mpierrot          #+#    #+#              #
-#    Updated: 2024/03/27 18:00:22 by mpierrot         ###   ########.fr        #
+#    Updated: 2024/03/29 21:32:37 by mpierrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_F	= push_swap.c move.c move_lst.c ft_atol.c  \
-		ft_print_functions.c  printab.c push_swap_utils.c \
+SRC_F	= push_swap.c move_rrr_sasb.c move_pa_ra.c ft_atol.c  \
+		 push_swap_utils.c \
 		ft_lst_functions.c parsing_utils.c mediane.c \
 		butterfly.c number.c small_list.c padding.c \
+		biggy.c pop_and_push.c index.c ft_datalstsize.c
 
 SRC_D	= srcs/
 OBJ_D = objs
 
 OBJ_F = $(SRC_F:%.c=$(OBJ_D)/%.o)
-CC = clang -g
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 AR = ar rcs

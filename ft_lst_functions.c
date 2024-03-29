@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 04:24:24 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/26 14:10:35 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:48:01 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ t_data	*ft_datalstnew(int number, size_t index)
 	new = malloc(sizeof(t_data));
 	if (new == NULL)
 		return (NULL);
-	if (index > 0)
-		new->index = index;
+	new->index = index;
 	new->value = number;
 	new->next = NULL;
 	return (new);

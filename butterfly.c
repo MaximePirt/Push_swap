@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:18:27 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/29 10:20:29 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 20:12:30 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,11 @@ void	butterfly_to_be(t_data **a, t_data **b)
 	if (how_many >= 100 && how_many < 200)
 		jz = 35;
 	if (how_many > 200)
-		jz = 57;
+		jz = 59;
 	else
 		jz = find_padding(*a);
 	sorting_in_execution(a, b, jz);
 }
-
-// void	sorting_in_execution(t_data **stack_a, t_data **stack_b, size_t padding)
-// {
-// 	size_t	n_to_move;
-// 	size_t	padding_base;
-
-// 	padding_base = padding;
-// 	n_to_move = how_much((*stack_a), padding) + 1;
-// 	while ((*stack_a))
-// 	{
-// 		if ((*stack_a)->index <= padding)
-// 		{
-// 			ft_papb(stack_a, stack_b, 2);
-// 			if ((*stack_b)->index > padding - (padding_base / 2))
-// 				ft_rarb(stack_b, 2);
-// 		}
-// 		else
-// 			ft_rarb(stack_a, 1);
-// 		if (ft_datalstsize(*stack_b) == n_to_move)
-// 		{
-// 			padding += padding_base;
-// 			n_to_move += how_much((*stack_a), padding);
-// 		}
-// 	}
-// 	reput_in_a_at_end(stack_a, stack_b);
-// }
 
 void	reput_in_a_at_end(t_data **stack_a, t_data **stack_b)
 {

@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:28:14 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/27 20:44:30 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 21:24:39 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,13 @@ void	ft_parsing(char **arg, int i)
 	butterfly_to_be(&a, &b);
 	ft_free_all(NULL, &a, &b, 1);
 }
-#include "limits.h"
 
 int	main(int argc, char **argv)
 {
 	int	i;
 
-	// printf("%ld", LONG_MAX);
-	(void)argc;
 	i = 1;
-	if (!argv[i])
+	if (argc < 2)
 		return (1);
 	ft_parsing(argv, i);
 	i++;

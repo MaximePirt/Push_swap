@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 17:03:50 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/27 19:03:21 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/03/29 21:11:26 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ size_t	find_padding(t_data *a)
 	ft_free_all(NULL, &tmp, NULL, 0);
 	return (res);
 }
+
 size_t	calcul_mediane(t_data *stack)
 {
-	size_t res;
+	size_t	res;
 
 	res = ft_datalstsize(stack);
-
 	if (res % 2 == 0)
 		res = res / 2;
 	else
 		res = (res + 1) / 2;
-
 	return (res);
 }
