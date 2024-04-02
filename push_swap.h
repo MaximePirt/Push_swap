@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 20:45:47 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/29 21:23:07 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:48:47 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void				five_four_num_sort(t_data **stack_a, t_data **stack_b,
 // Index
 int					last_index(t_data **stack);
 int					check_index(t_data *stack);
+void				is_it_sort(t_data *a);
 
 // Biggy and Minnie functions
 int					move_biggy_r(t_data **take, t_data **stack, size_t biggy,

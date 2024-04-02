@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 16:18:27 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/29 20:12:30 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:47:06 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	butterfly_to_be(t_data **a, t_data **b)
 	size_t	how_many;
 
 	find_index(*a);
+	is_it_sort(*a);
 	how_many = ft_datalstsize(*a);
 	if (how_many == 2)
 		two_num_sort(a);
