@@ -6,7 +6,7 @@
 /*   By: mpierrot <mpierrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:00:19 by mpierrot          #+#    #+#             */
-/*   Updated: 2024/03/29 21:16:43 by mpierrot         ###   ########.fr       */
+/*   Updated: 2024/04/04 12:43:44 by mpierrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,13 @@ void	three_num_sort(t_data **stack)
 			&& t->next->index > t->next->next->index
 			&& t->next->next->index > t->index))
 		ft_sasb(stack, 1);
+	t = *stack;
 	if (t->index > t->next->index && t->next->index < t->next->next->index
 		&& t->next->next->index < t->index)
+	{
 		ft_rarb(stack, 1);
+		t = *stack;
+	}
 	else if ((t->index < t->next->index && t->next->index > t->next->next->index
 			&& t->next->next->index < t->index))
 		ft_rrarrb(stack, 1);
