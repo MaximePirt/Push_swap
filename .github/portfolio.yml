@@ -1,0 +1,21 @@
+title: Push_swap
+origin: 42
+domains: [systems]
+summary:
+  fr: 42 • C / Algorithmique
+  en: 42 • C / Algorithms
+description:
+  fr: >
+    Projet École 42 : trie une pile de nombres entiers avec un nombre
+    minimal de mouvements, en n'utilisant que deux piles et onze
+    instructions (sa, pa, ra, rra...). Implémente un tri par paquets
+    (chunks indexés) pour les grandes listes et des cas particuliers
+    câblés à la main pour les listes de 2 à 5 éléments, avec son propre
+    parsing et sa propre liste chaînée.
+  en: >
+    42 School project: sorts a stack of integers with a minimal number
+    of moves, using only two stacks and eleven instructions (sa, pa, ra,
+    rra...). Implements a chunk-based sort (indexed buckets) for large
+    lists and hand-written special cases for lists of 2 to 5 elements,
+    with custom argument parsing and a custom linked list.
+stack: [C, Makefile]
